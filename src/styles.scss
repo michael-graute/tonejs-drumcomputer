@@ -1,1 +1,211 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+ins-track {
+  display: block;
+  .track {
+
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+
+    &.soloed {
+      border: 1px dashed #877a51;
+    }
+
+    display: grid;
+    grid-template-columns: 120px 40px 40px 100px 100px 1fr;
+    grid-column-gap: 15px;
+
+    &.Kick {
+      .track-name, .form-select {
+        color: #dc8226 !important;
+        border-color: #dc8226 !important;
+      }
+      .step {
+        label {
+          background-color: #dc8226 !important;
+          border-color: #dc8226 !important;
+        }
+      }
+    }
+
+    &.Snare {
+      .track-name, .form-select {
+        color: #dcc426;
+        border-color: #dcc426;
+      }
+      .step {
+        label {
+          background-color: #dcc426 !important;
+          border-color: #dcc426 !important;
+        }
+      }
+    }
+
+    &.HiHat {
+      .track-name, .form-select {
+        color: #93dc26;
+        border-color: #93dc26;
+      }
+      .step {
+        label {
+          background-color: #93dc26 !important;
+          border-color: #93dc26 !important;
+        }
+      }
+    }
+
+    &.LowTom {
+      .track-name, .form-select {
+        color: #26dc2f;
+        border-color: #26dc2f;
+      }
+      .step {
+        label {
+          background-color: #26dc2f !important;
+          border-color: #26dc2f !important;
+        }
+      }
+    }
+
+    &.MidTom {
+      .track-name, .form-select {
+        color: #26dcab;
+        border-color: #26dcab;
+      }
+      .step {
+        label {
+          background-color: #26dcab !important;
+          border-color: #26dcab !important;
+        }
+      }
+    }
+
+    &.MidTom2 {
+      .track-name, .form-select {
+        color: #26bbdc;
+        border-color: #26bbdc;
+      }
+      .step {
+        label {
+          background-color: #26bbdc !important;
+          border-color: #26bbdc !important;
+        }
+      }
+    }
+
+    &.HighTom {
+      .track-name, .form-select {
+        color: #2675dc;
+        border-color: #2675dc;
+      }
+      .step {
+        label {
+          background-color: #2675dc !important;
+          border-color: #2675dc !important;
+        }
+      }
+    }
+
+    &.Clap {
+      .track-name, .form-select {
+        color: #3e26dc;
+        border-color: #3e26dc;
+      }
+      .step {
+        label {
+          background-color: #3e26dc !important;
+          border-color: #3e26dc !important;
+        }
+      }
+    }
+
+    &.Rim {
+      .track-name, .form-select {
+        color: #9326dc;
+        border-color: #9326dc;
+      }
+      .step {
+        label {
+          background-color: #9326dc !important;
+          border-color: #9326dc !important;
+        }
+      }
+    }
+
+    &.Cowbell {
+      .track-name, .form-select {
+        color: #dc2693;
+        border-color: #dc2693;
+      }
+      .step {
+        label {
+          background-color: #dc2693 !important;
+          border-color: #dc2693 !important;
+        }
+      }
+    }
+  }
+}
+
+.track-name {
+  width: 300px;
+}
+
+.steps {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .step {
+    label {
+      opacity: .1;
+      border-width: 3px;
+    }
+
+    &.armed {
+      label {
+        //background-color: #38773c !important;
+        opacity: .5;
+      }
+    }
+    &.playing {
+      label {
+        //background-color: #2a2c2a !important;
+        opacity: .3;
+      }
+      &.armed {
+        label {
+          //background-color: #38773c !important;
+          opacity: 1;
+          border-color: #c4ced2 !important;
+        }
+      }
+
+    }
+  }
+}
+
+.track {
+  &.muted {
+    opacity: .5;
+    background: #423e3e;
+
+    .steps {
+      .step {
+        &.playing {
+          &.armed {
+            label {
+              border-color: transparent !important;
+              opacity: .3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

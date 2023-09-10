@@ -1,0 +1,31 @@
+<div class="track" [class]="config.name" [ngClass]="{'muted': config.mute, 'soloed': config.solo}">
+  <p class="track-name" *ngIf="!nameEditable" (click)="enableNameEdit()">{{config.name}}</p>
+  <div *ngIf="nameEditable">
+    <input type="text" class="form-control" [(ngModel)]="config.name" (blur)="disableNameEdit()" />
+  </div>
+  <div>
+    <input type="checkbox" class="btn-check" [id]="'btn-mute' + config.name" [(ngModel)]="config.mute" (change)="muteTrack()"/>
+    <label class="btn btn-outline-danger" [for]="'btn-mute' + config.name">m</label>
+  </div>
+  <div>
+    <input type="checkbox" class="btn-check" [id]="'btn-solo' + config.name" [(ngModel)]="config.solo" (change)="soloTrack()"/>
+    <label class="btn btn-outline-warning" [for]="'btn-solo' + config.name">s</label>
+  </div>
+  <!--<button class="btn btn-danger" (click)="muteTrack()">m</button>-->
+  <!--<button class="btn btn-warning" (click)="soloTrack()">s</button>-->
+  <select class="form-select" [(ngModel)]="config.frequency">
+    <option *ngFor="let note of notes" [value]="note">{{note}}</option>
+  </select>
+  <select class="form-select" [(ngModel)]="synth.oscillator.type">
+    <option *ngFor="let type of ['sine', 'triangle', 'square', 'sawtooth']" [value]="type">{{type}}</option>
+  </select>
+  <div class="steps">
+    <div *ngFor="let step of config.steps; let i = index" class="step" [class]="{'playing': i === activeStepNumber && playing, 'armed': step.enabled}">
+      <input type="checkbox" class="btn-check" [id]="'btn' + config.name + i" [(ngModel)]="step.enabled" />
+      <label class="btn btn-outline-info" [for]="'btn' + config.name + i">&nbsp;</label>
+    </div>
+  </div>
+</div>
+<div class="track-editor" *ngIf="nameEditable">
+  <button class="btn btn-sm btn-success"><i class="bi bi-0-circle"></i></button>
+</div>
