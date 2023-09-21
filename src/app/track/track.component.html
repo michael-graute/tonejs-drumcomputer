@@ -16,9 +16,7 @@
   <select class="form-select" [(ngModel)]="config.frequency">
     <option *ngFor="let note of notes" [value]="note">{{note}}</option>
   </select>
-  <select class="form-select" [(ngModel)]="synth.oscillator.type">
-    <option *ngFor="let type of ['sine', 'triangle', 'square', 'sawtooth']" [value]="type">{{type}}</option>
-  </select>
+
   <div class="steps">
     <div *ngFor="let step of config.steps; let i = index" class="step" [class]="{'playing': i === activeStepNumber && playing, 'armed': step.enabled}">
       <input type="checkbox" class="btn-check" [id]="'btn' + config.name + i" [(ngModel)]="step.enabled" />
@@ -28,4 +26,12 @@
 </div>
 <div class="track-editor" *ngIf="nameEditable">
   <button class="btn btn-sm btn-success"><i class="bi bi-0-circle"></i></button>
+  <select class="form-select" [(ngModel)]="synth.oscillator.type" (ngModelChange)="config.oscillator.type = $event">
+    <option *ngFor="let type of ['sine', 'triangle', 'square', 'sawtooth']" [value]="type">{{type}}</option>
+  </select>
+  <input type="range" class="form-range" [(ngModel)]="synth.oscillator.volume.value" min="-20" max="1" step="1" (ngModelChange)="config.oscillator.volume = $event" />
+  <input type="range" class="form-range" [(ngModel)]="synth.envelope.attack" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.attack = $event" />
+  <input type="range" class="form-range" [(ngModel)]="synth.envelope.decay" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.decay = $event" />
+  <input type="range" class="form-range" [(ngModel)]="synth.envelope.sustain" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.systain = $event" />
+  <input type="range" class="form-range" [(ngModel)]="synth.envelope.release" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.release = $event" />
 </div>
