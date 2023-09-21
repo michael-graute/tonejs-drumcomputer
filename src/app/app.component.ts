@@ -35,26 +35,27 @@ export class AppComponent {
   }
 
   play(): void {
-    Tone.start();
-    let index = 0;
-    this.loop = new Tone.Loop(time => {
-      let trackIndex = 0;
-      this.tracks.forEach(track => {
-        const step = track.steps[index];
-        if (step.enabled && !track.mute) {
-          this.synths[trackIndex].triggerAttackRelease(track.frequency, step.duration, time);
-        }
-        trackIndex++;
-      });
-      Tone.Draw.schedule(() => {
-        this.activeStepNumber = index;
-        this.changeDetectorRef.detectChanges();
-        index = (index + 1) % 16;
-      }, time);
-    }, this.tempo).start(0);
-    this.playing = true;
-    Tone.Transport.bpm.value = this.bpm;
-    Tone.Transport.start();
+    Tone.start().then(() => {
+      let index = 0;
+      this.loop = new Tone.Loop(time => {
+        let trackIndex = 0;
+        this.tracks.forEach(track => {
+          const step = track.steps[index];
+          if (step.enabled && !track.mute) {
+            this.synths[trackIndex].triggerAttackRelease(track.frequency, step.duration, time);
+          }
+          trackIndex++;
+        });
+        Tone.Draw.schedule(() => {
+          this.activeStepNumber = index;
+          this.changeDetectorRef.detectChanges();
+          index = (index + 1) % 16;
+        }, time);
+      }, this.tempo).start(0);
+      this.playing = true;
+      Tone.Transport.bpm.value = this.bpm;
+      Tone.Transport.start();
+    });
   }
 
   stop(): void {
