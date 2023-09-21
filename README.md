@@ -1,5 +1,8 @@
 # TonejsDrumcomputer
 
+Just a simple drumcomputer/step-sequencer using [Tone.js](https://tonejs.github.io/) and [Angular](https://angular.io/).
+This is just a small project to get to know the basics of Tone.js and to find out what the Web Audio API is capable of.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.7.
 
 ## Development server
