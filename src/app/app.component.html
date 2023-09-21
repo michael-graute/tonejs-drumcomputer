@@ -18,7 +18,7 @@
   </div>
 
 
-  <ins-track *ngFor="let track of tracks; let i = index" [activeStepNumber]="activeStepNumber" [playing]="playing" [config]="track" [synth]="synths[i]"  [class]="track.name" (soloed)="trackSoloed($event)"></ins-track>
+  <ins-track *ngFor="let track of tracks; let i = index" [activeStepNumber]="activeStepNumber" [playing]="playing" [config]="track" [synth]="synths[i]" [ngClass]="{'muted': track.mute, 'soloed': track.solo}" [class]="track.name" (soloed)="trackSoloed($event)"></ins-track>
   <button class="btn btn-success" (click)="play()">Play</button>
   <button class="btn btn-danger" (click)="stop()">Stop</button>
   <button class="btn btn-primary" (click)="save()">Save</button>
