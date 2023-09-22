@@ -15,7 +15,7 @@ ins-track {
     }*/
   }
 
-  &.Kick {
+  &.orange {
     .track-name, .form-select, .form-control {
       color: #dc8226 !important;
       border-color: #dc8226 !important;
@@ -37,7 +37,7 @@ ins-track {
     }
   }
 
-  &.Snare {
+  &.yellow {
     .track-name, .form-select {
       color: #dcc426;
       border-color: #dcc426;
@@ -50,7 +50,7 @@ ins-track {
     }
   }
 
-  &.HiHat {
+  &.yellow-green {
     .track-name, .form-select {
       color: #93dc26;
       border-color: #93dc26;
@@ -63,7 +63,7 @@ ins-track {
     }
   }
 
-  &.LowTom {
+  &.green {
     .track-name, .form-select {
       color: #26dc2f;
       border-color: #26dc2f;
@@ -76,7 +76,7 @@ ins-track {
     }
   }
 
-  &.MidTom {
+  &.green-blue {
     .track-name, .form-select {
       color: #26dcab;
       border-color: #26dcab;
@@ -89,7 +89,7 @@ ins-track {
     }
   }
 
-  &.MidTom2 {
+  &.teal {
     .track-name, .form-select {
       color: #26bbdc;
       border-color: #26bbdc;
@@ -102,7 +102,7 @@ ins-track {
     }
   }
 
-  &.HighTom {
+  &.blue {
     .track-name, .form-select {
       color: #2675dc;
       border-color: #2675dc;
@@ -115,7 +115,7 @@ ins-track {
     }
   }
 
-  &.Clap {
+  &.dark-blue {
     .track-name, .form-select {
       color: #3e26dc;
       border-color: #3e26dc;
@@ -128,7 +128,7 @@ ins-track {
     }
   }
 
-  &.Rim {
+  &.violett {
     .track-name, .form-select {
       color: #9326dc;
       border-color: #9326dc;
@@ -141,7 +141,7 @@ ins-track {
     }
   }
 
-  &.Cowbell {
+  &.magenta {
     .track-name, .form-select {
       color: #dc2693;
       border-color: #dc2693;

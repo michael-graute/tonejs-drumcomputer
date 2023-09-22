@@ -1,4 +1,4 @@
-<div class="track" [class]="config.name" [ngClass]="{'muted': config.mute, 'soloed': config.solo}">
+<div class="track" [class]="config.colorScheme" [ngClass]="{'muted': config.mute, 'soloed': config.solo}">
   <p class="track-name" *ngIf="!nameEditable" (click)="enableNameEdit()">{{config.name}}</p>
   <div *ngIf="nameEditable">
     <input type="text" class="form-control" [(ngModel)]="config.name" (blur)="disableNameEdit()" />
