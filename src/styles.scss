@@ -3,6 +3,44 @@
 @import "bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons";
 
+$orange: #dc8226;
+$yellow: #dcc426;
+$yellow-green: #93dc26;
+$green: #26dc2f;
+$green-blue: #26dcab;
+$teal: #26bbdc;
+$blue: #2675dc;
+$dark-blue: #3e26dc;
+$violett: #9326dc;
+$magenta: #dc2693;
+
+@mixin track ($color) {
+  .track-name, .form-select, .form-control {
+    color: $color !important;
+    border-color: $color !important;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: $color !important;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: darken($color, 33) !important;
+  }
+
+  .form-label {
+    color: $color !important;
+  }
+
+  .step {
+    label {
+      background-color: $color !important;
+      border-color: $color !important;
+    }
+  }
+}
+
+
 ins-track {
   display: block;
 
@@ -16,142 +54,51 @@ ins-track {
   }
 
   &.orange {
-    .track-name, .form-select, .form-control {
-      color: #dc8226 !important;
-      border-color: #dc8226 !important;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      background-color: #dc8226 !important;
-    }
-
-    input[type="range"]::-webkit-slider-runnable-track {
-      background-color: #4d3d2f !important;
-    }
-
-    .step {
-      label {
-        background-color: #dc8226 !important;
-        border-color: #dc8226 !important;
-      }
-    }
+    @include track($orange);
   }
 
   &.yellow {
-    .track-name, .form-select {
-      color: #dcc426;
-      border-color: #dcc426;
-    }
-    .step {
-      label {
-        background-color: #dcc426 !important;
-        border-color: #dcc426 !important;
-      }
-    }
+    @include track($yellow);
   }
 
   &.yellow-green {
-    .track-name, .form-select {
-      color: #93dc26;
-      border-color: #93dc26;
-    }
-    .step {
-      label {
-        background-color: #93dc26 !important;
-        border-color: #93dc26 !important;
-      }
-    }
+    @include track($yellow-green);
   }
 
   &.green {
-    .track-name, .form-select {
-      color: #26dc2f;
-      border-color: #26dc2f;
-    }
-    .step {
-      label {
-        background-color: #26dc2f !important;
-        border-color: #26dc2f !important;
-      }
-    }
+    @include track($green);
   }
 
   &.green-blue {
-    .track-name, .form-select {
-      color: #26dcab;
-      border-color: #26dcab;
-    }
-    .step {
-      label {
-        background-color: #26dcab !important;
-        border-color: #26dcab !important;
-      }
-    }
+    @include track($green-blue);
   }
 
   &.teal {
-    .track-name, .form-select {
-      color: #26bbdc;
-      border-color: #26bbdc;
-    }
-    .step {
-      label {
-        background-color: #26bbdc !important;
-        border-color: #26bbdc !important;
-      }
-    }
+    @include track($teal);
   }
 
   &.blue {
-    .track-name, .form-select {
-      color: #2675dc;
-      border-color: #2675dc;
-    }
-    .step {
-      label {
-        background-color: #2675dc !important;
-        border-color: #2675dc !important;
-      }
-    }
+    @include track($blue);
   }
 
   &.dark-blue {
-    .track-name, .form-select {
-      color: #3e26dc;
-      border-color: #3e26dc;
-    }
-    .step {
-      label {
-        background-color: #3e26dc !important;
-        border-color: #3e26dc !important;
-      }
-    }
+    @include track($dark-blue);
   }
 
   &.violett {
-    .track-name, .form-select {
-      color: #9326dc;
-      border-color: #9326dc;
-    }
-    .step {
-      label {
-        background-color: #9326dc !important;
-        border-color: #9326dc !important;
-      }
-    }
+    @include track($magenta);
   }
 
   &.magenta {
-    .track-name, .form-select {
-      color: #dc2693;
-      border-color: #dc2693;
-    }
-    .step {
-      label {
-        background-color: #dc2693 !important;
-        border-color: #dc2693 !important;
-      }
-    }
+    @include track($orange);
+  }
+
+  .track-editor {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
   }
 
   .track {
@@ -196,8 +143,6 @@ ins-track {
         }
       }
     }
-
-
 
     &.muted {
       opacity: .5;
