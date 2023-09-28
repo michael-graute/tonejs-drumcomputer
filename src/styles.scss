@@ -11,6 +11,8 @@ $blue: #2675dc;
 $dark-blue: #3e26dc;
 $violett: #9326dc;
 $magenta: #dc2693;
+$red: #dc264c;
+$red2: #dc5626;
 
 @mixin track ($color) {
   .track-name, .form-select, .form-control {
@@ -34,6 +36,15 @@ $magenta: #dc2693;
     label {
       background-color: $color !important;
       border-color: $color !important;
+    }
+
+    &.playing {
+      &.armed {
+        label {
+          opacity: 1;
+          border-color: lighten($color, 40) !important;
+        }
+      }
     }
   }
 }
@@ -84,19 +95,28 @@ ins-track {
   }
 
   &.violett {
-    @include track($magenta);
+    @include track($violett);
   }
 
   &.magenta {
-    @include track($orange);
+    @include track($magenta);
+  }
+
+  &.red {
+    @include track($red);
+  }
+
+  &.red2 {
+    @include track($red2);
   }
 
   .track-editor {
-    display: flex;
+    display: grid;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
+    align-items: start;
+    gap: 15px;
+    grid-template-columns: 456px 1fr;
+    vertical-align: top;
   }
 
   .track {
@@ -121,23 +141,13 @@ ins-track {
 
         &.armed {
           label {
-            //background-color: #38773c !important;
             opacity: .5;
           }
         }
         &.playing {
           label {
-            //background-color: #2a2c2a !important;
             opacity: .3;
           }
-          &.armed {
-            label {
-              //background-color: #38773c !important;
-              opacity: 1;
-              border-color: #c4ced2 !important;
-            }
-          }
-
         }
       }
     }
