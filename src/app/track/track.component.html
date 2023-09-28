@@ -25,18 +25,34 @@
   </div>
 </div>
 <div class="track-editor" *ngIf="nameEditable">
-  <button class="btn btn-sm btn-success"><i class="bi bi-0-circle"></i></button>
-  <select class="form-select form-select-sm" [(ngModel)]="synth.oscillator.type" (ngModelChange)="config.oscillator.type = $event">
-    <option *ngFor="let type of ['sine', 'triangle', 'square', 'sawtooth']" [value]="type">{{type}}</option>
-  </select>
-  <label class="form-label col-form-label-sm">Volume</label>
-  <input type="range" class="form-range" [(ngModel)]="synth.oscillator.volume.value" min="-20" max="1" step="1" (ngModelChange)="config.oscillator.volume = $event" />
-  <label class="form-label col-form-label-sm">Attack</label>
-  <input type="range" class="form-range" [(ngModel)]="synth.envelope.attack" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.attack = $event" />
-  <label class="form-label col-form-label-sm">Decay</label>
-  <input type="range" class="form-range" [(ngModel)]="synth.envelope.decay" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.decay = $event" />
-  <label class="form-label col-form-label-sm">Sustain</label>
-  <input type="range" class="form-range" [(ngModel)]="synth.envelope.sustain" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.systain = $event" />
-  <label class="form-label col-form-label-sm">Release</label>
-  <input type="range" class="form-range" [(ngModel)]="synth.envelope.release" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.release = $event" />
+  <div>
+    <button class="btn btn-sm btn-success"><i class="bi bi-0-circle"></i></button>
+    <select class="form-select form-select-sm" [(ngModel)]="synth.oscillator.type" (ngModelChange)="config.oscillator.type = $event">
+      <option *ngFor="let type of ['sine', 'triangle', 'square', 'sawtooth']" [value]="type">{{type}}</option>
+    </select>
+    <label class="form-label col-form-label-sm">Volume</label>
+    <input type="range" class="form-range" [(ngModel)]="synth.oscillator.volume.value" min="-20" max="1" step="1" (ngModelChange)="config.oscillator.volume = $event" />
+    <label class="form-label col-form-label-sm">Attack</label>
+    <input type="range" class="form-range" [(ngModel)]="synth.envelope.attack" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.attack = $event" />
+    <label class="form-label col-form-label-sm">Decay</label>
+    <input type="range" class="form-range" [(ngModel)]="synth.envelope.decay" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.decay = $event" />
+    <label class="form-label col-form-label-sm">Sustain</label>
+    <input type="range" class="form-range" [(ngModel)]="synth.envelope.sustain" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.systain = $event" />
+    <label class="form-label col-form-label-sm">Release</label>
+    <input type="range" class="form-range" [(ngModel)]="synth.envelope.release" min="0.01" max="1" step=".01" (ngModelChange)="config.oscillator.envelope.release = $event" />
+  </div>
+  <div style="display: flex;
+      justify-content: space-between;
+      align-items: center;">
+    <div *ngFor="let step of config.steps;">
+      <select class="form-select form-select-sm" [(ngModel)]="step.duration">
+        <option [ngValue]="'1n'">1n</option>
+        <option [ngValue]="'2n'">2n</option>
+        <option [ngValue]="'4n'">4n</option>
+        <option [ngValue]="'8n'">8n</option>
+        <option [ngValue]="'16n'">16n</option>
+        <option [ngValue]="'32n'">32n</option>
+      </select>
+    </div>
+  </div>
 </div>
