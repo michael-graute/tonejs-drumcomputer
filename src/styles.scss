@@ -53,15 +53,6 @@ $red2: #dc5626;
 ins-track {
   display: block;
 
-  &.soloed {
-    /*border: 1px dashed #877a51;
-    margin-bottom: 5px;
-
-    .track {
-      padding-bottom: 5px;
-    }*/
-  }
-
   &.orange {
     @include track($orange);
   }
