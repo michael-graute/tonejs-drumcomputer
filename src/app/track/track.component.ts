@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import * as Tone from "tone";
 
 @Component({
-  selector: 'ins-track',
-  templateUrl: './track.component.html',
-  styleUrls: ['./track.component.scss']
+    selector: 'ins-track',
+    templateUrl: './track.component.html',
+    styleUrls: ['./track.component.scss'],
+    standalone: false
 })
 export class TrackComponent {
 
